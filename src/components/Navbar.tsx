@@ -21,37 +21,37 @@ export default async function Navbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-slate-800 glassmorphism">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
-          <Store className="h-6 w-6 text-blue-600" />
-          <span className="text-xl font-bold tracking-tight text-gray-900">Kiyim</span>
+          <Store className="h-6 w-6 text-blue-600 dark:text-blue-500" />
+          <span className="text-xl font-bold tracking-tight text-foreground">Kiyim</span>
         </Link>
 
         <div className="flex items-center gap-6">
           {user ? (
             <>
               {profile?.role === "seller" ? (
-                <Link href="/seller" className="text-sm font-medium text-gray-700 hover:text-blue-600">
+                <Link href="/seller" className="text-sm font-medium text-foreground/80 hover:text-blue-600 dark:hover:text-blue-400">
                   Sotuvchi Paneli
                 </Link>
               ) : (
-                <Link href="/cart" className="relative text-gray-700 hover:text-blue-600">
+                <Link href="/cart" className="relative text-foreground/80 hover:text-blue-600 dark:hover:text-blue-400">
                   <ShoppingCart className="h-5 w-5" />
                 </Link>
               )}
               
-              <Link href="/chat" className="text-gray-700 hover:text-blue-600">
+              <Link href="/chat" className="text-foreground/80 hover:text-blue-600 dark:hover:text-blue-400">
                 <MessageSquare className="h-5 w-5" />
               </Link>
 
-              <div className="flex items-center gap-4 border-l pl-4">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="flex items-center gap-4 border-l border-gray-200 dark:border-slate-800 pl-4">
+                <div className="flex items-center gap-2 text-sm text-foreground/80">
                   <UserIcon className="h-4 w-4" />
                   <span className="hidden sm:inline-block">{profile?.full_name || user.email}</span>
                 </div>
                 <form action={logout}>
-                  <button className="text-sm font-medium text-red-600 hover:text-red-700">
+                  <button className="text-sm font-medium text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-400">
                     Chiqish
                   </button>
                 </form>
@@ -61,7 +61,7 @@ export default async function Navbar() {
             <div className="flex items-center gap-4">
               <Link
                 href="/login"
-                className="text-sm font-medium text-gray-700 hover:text-blue-600"
+                className="text-sm font-medium text-foreground/80 hover:text-blue-600 dark:hover:text-blue-400"
               >
                 Kirish
               </Link>

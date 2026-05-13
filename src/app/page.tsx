@@ -29,44 +29,44 @@ export default async function Home() {
 
       <section>
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-900">Yangi maxsulotlar</h2>
+          <h2 className="text-2xl font-bold text-foreground">Yangi maxsulotlar</h2>
         </div>
 
         {error ? (
           <p className="text-red-500">Maxsulotlarni yuklashda xatolik yuz berdi.</p>
         ) : products?.length === 0 ? (
-          <div className="text-center py-12 bg-white rounded-2xl border border-gray-100">
-            <ShoppingBag className="mx-auto h-12 w-12 text-gray-300 mb-4" />
-            <p className="text-gray-500 text-lg">Hozircha maxsulotlar yo'q</p>
+          <div className="text-center py-12 bg-white dark:bg-slate-800/50 rounded-2xl border border-gray-100 dark:border-slate-700">
+            <ShoppingBag className="mx-auto h-12 w-12 text-gray-300 dark:text-gray-600 mb-4" />
+            <p className="text-gray-500 dark:text-gray-400 text-lg">Hozircha maxsulotlar yo'q</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {products?.map((product) => (
-              <Link href={`/product/${product.id}`} key={product.id} className="group flex flex-col bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all">
-                <div className="relative aspect-square w-full bg-gray-100 overflow-hidden">
+              <Link href={`/product/${product.id}`} key={product.id} className="group flex flex-col bg-white dark:bg-slate-800/80 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden hover:shadow-lg dark:hover:shadow-blue-900/20 transition-all duration-300">
+                <div className="relative aspect-square w-full bg-gray-100 dark:bg-slate-900 overflow-hidden">
                   {product.image_url ? (
                     <Image
                       src={product.image_url}
                       alt={product.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                   ) : (
-                    <div className="flex items-center justify-center h-full text-gray-400">
+                    <div className="flex items-center justify-center h-full text-gray-400 dark:text-gray-600">
                       Rasm yo'q
                     </div>
                   )}
                 </div>
-                <div className="p-4 flex flex-col flex-1">
-                  <div className="text-xs text-blue-600 font-semibold mb-1 uppercase tracking-wider">
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="text-xs text-blue-600 dark:text-blue-400 font-bold mb-1 uppercase tracking-wider">
                     {/* @ts-ignore */}
                     {product.stores?.name}
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+                  <h3 className="text-lg font-bold text-foreground mb-2 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {product.name}
                   </h3>
-                  <div className="mt-auto flex items-center justify-between">
-                    <span className="text-xl font-extrabold text-gray-900">
+                  <div className="mt-auto flex items-center justify-between pt-4 border-t border-gray-100 dark:border-slate-700/50">
+                    <span className="text-xl font-extrabold text-foreground">
                       {product.price.toLocaleString("uz-UZ")} so'm
                     </span>
                   </div>

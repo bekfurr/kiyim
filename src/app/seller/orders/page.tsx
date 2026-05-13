@@ -27,49 +27,49 @@ export default async function SellerOrders() {
   if (!store) return <div>Do'kon ma'lumotlari kiritilmagan.</div>;
 
   return (
-    <div className="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-gray-100">
-      <h1 className="text-2xl font-bold text-gray-900 mb-8">Tushgan buyurtmalar</h1>
+    <div className="bg-white dark:bg-slate-800/50 rounded-2xl p-6 sm:p-10 shadow-sm border border-gray-100 dark:border-slate-700">
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Tushgan buyurtmalar</h1>
 
       <div className="space-y-6">
         {orders?.length === 0 ? (
           <p className="text-gray-500 text-center py-8">Hozircha buyurtmalar yo'q.</p>
         ) : (
           orders?.map((order) => (
-            <div key={order.id} className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <div className="flex flex-wrap justify-between gap-4 border-b pb-4 mb-4">
+            <div key={order.id} className="border border-gray-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-md transition-shadow">
+              <div className="flex flex-wrap justify-between gap-4 border-b dark:border-slate-700 pb-4 mb-4">
                 <div>
-                  <p className="text-sm text-gray-500">Buyurtma ID</p>
-                  <p className="font-mono text-sm font-medium">{order.id.split('-')[0]}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Buyurtma ID</p>
+                  <p className="font-mono text-sm font-medium text-foreground">{order.id.split('-')[0]}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Mijoz</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Mijoz</p>
                   {/* @ts-ignore */}
-                  <p className="font-medium text-gray-900">{order.profiles?.full_name || 'Noma\'lum'}</p>
+                  <p className="font-medium text-gray-900 dark:text-gray-100">{order.profiles?.full_name || 'Noma\'lum'}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Sana</p>
-                  <p className="font-medium text-gray-900">{new Date(order.created_at).toLocaleDateString("uz-UZ")}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Sana</p>
+                  <p className="font-medium text-gray-900 dark:text-gray-100">{new Date(order.created_at).toLocaleDateString("uz-UZ")}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Holat</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Holat</p>
                   <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium capitalize ${
                     order.status === 'pending' ? 'bg-yellow-100 text-yellow-800' : 
-                    order.status === 'completed' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                    order.status === 'completed' ? 'bg-green-100 text-green-800' : 'bg-slate-100 dark:bg-slate-700 text-gray-800 dark:text-gray-200'
                   }`}>
                     {order.status}
                   </span>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm text-gray-500">Umumiy summa</p>
-                  <p className="font-bold text-blue-600">{order.total_amount.toLocaleString("uz-UZ")} so'm</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Umumiy summa</p>
+                  <p className="font-bold text-blue-600 dark:text-blue-400">{order.total_amount.toLocaleString("uz-UZ")} so'm</p>
                 </div>
               </div>
 
               <div>
-                <h4 className="font-medium text-gray-900 mb-2">Maxsulotlar:</h4>
+                <h4 className="font-medium text-gray-900 dark:text-white mb-2">Maxsulotlar:</h4>
                 <ul className="space-y-2">
                   {order.order_items.map((item: any, idx: number) => (
-                    <li key={idx} className="flex justify-between text-sm text-gray-600">
+                    <li key={idx} className="flex justify-between text-sm text-gray-600 dark:text-gray-400">
                       <span>{item.products.name} x {item.quantity}</span>
                       <span>{(item.price_at_time * item.quantity).toLocaleString("uz-UZ")} so'm</span>
                     </li>
@@ -77,10 +77,10 @@ export default async function SellerOrders() {
                 </ul>
               </div>
 
-              <div className="mt-4 pt-4 border-t flex gap-4 text-sm text-gray-600">
-                <p><strong>Yetkazish usuli:</strong> {order.delivery_method === 'pickup' ? "Olib ketish" : "Dostavka"}</p>
+              <div className="mt-4 pt-4 border-t dark:border-slate-700 flex gap-4 text-sm text-gray-600 dark:text-gray-400">
+                <p><strong className="text-gray-900 dark:text-gray-200">Yetkazish usuli:</strong> {order.delivery_method === 'pickup' ? "Olib ketish" : "Dostavka"}</p>
                 {order.delivery_address && (
-                  <p><strong>Manzil:</strong> {order.delivery_address}</p>
+                  <p><strong className="text-gray-900 dark:text-gray-200">Manzil:</strong> {order.delivery_address}</p>
                 )}
               </div>
             </div>

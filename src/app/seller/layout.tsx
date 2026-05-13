@@ -26,21 +26,21 @@ export default async function SellerLayout({
   return (
     <div className="flex flex-col md:flex-row gap-8">
       <aside className="w-full md:w-64 shrink-0">
-        <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm sticky top-24">
+        <div className="bg-white dark:bg-slate-800/50 rounded-2xl p-4 border border-gray-100 dark:border-slate-700 shadow-sm sticky top-24">
           <nav className="space-y-2">
-            <Link href="/seller" className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors font-medium">
+            <Link href="/seller" className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl transition-colors font-medium">
               <Store className="h-5 w-5" />
               Do'kon
             </Link>
-            <Link href="/seller/products" className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors font-medium">
+            <Link href="/seller/products" className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl transition-colors font-medium">
               <Package className="h-5 w-5" />
               Maxsulotlar
             </Link>
-            <Link href="/seller/orders" className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors font-medium">
+            <Link href="/seller/orders" className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl transition-colors font-medium">
               <ShoppingBag className="h-5 w-5" />
               Buyurtmalar
             </Link>
-            <Link href="/seller/settings" className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors font-medium">
+            <Link href="/seller/settings" className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl transition-colors font-medium">
               <Settings className="h-5 w-5" />
               Sozlamalar
             </Link>
